@@ -1,0 +1,199 @@
+<br>
+<br>
+<div class="container">
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='facarrera'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Nombre de la Carrera</small>
+                <p class="h6"><strong>{{carrera.nombre}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='famodalidad'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Modalidad</small>
+                <p class="h6"><strong>{{carrera.modalidad | modalidad }}</strong></p>
+
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Director</small>
+                <p class="h6"><strong>{{carrera.director}}</strong></p>
+
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='ftipo'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Tipo</small>
+                <p class="h6"><strong>{{carrera.tipo}}</strong></p>
+
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='facreditos'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Creditos Totales</small>
+                <p class="h6"><strong>{{carrera.creditos_totales}}</strong></p>
+
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='festatus'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Estatus</small>
+                <p class="h6"><strong>{{carrera.estatus | estatus}}</strong></p>
+
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='fsemanas'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Semanas por Periodo</small>
+                <p class="h6"><strong>{{carrera.semanas_periodo}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='ffecha'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Fecha de Creación</small>
+                <p class="h6"><strong>{{carrera.fecha_creacion | date : 'longDate' }}</strong></p>
+
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='facreditos'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Duracion</small>
+                <p class="h6"><strong>{{carrera.duracion}} Semestres</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='ftexto'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Descripcion</small>
+                <p class="h6"><strong>{{carrera.descripcion}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='fmision'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Mision</small>
+                <p class="h6"><strong>{{carrera.mision}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='fvision'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Vision</small>
+                <p class="h6"><strong>{{carrera.vision}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='fresolucion'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Resolución de CES</small>
+                <p class="h6"><strong>{{carrera.resolucion_ces}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='frequisitos'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Requisitos</small>
+                <p class="h6"><strong>{{carrera.requisitos}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='flaboral'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Escenarios Laborales</small>
+                <p class="h6"><strong>{{carrera.escenarios_labo}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='fobjetivo'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Objeto de Estudio</small>
+                <p class="h6"><strong>{{carrera.objeto_estudio}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

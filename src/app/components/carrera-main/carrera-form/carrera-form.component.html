@@ -1,0 +1,180 @@
+<div class="container">
+    <div class="text-center">
+        <fa-icon class="fa-4x" [icon]="facarrera"></fa-icon>
+    </div>
+    <hr>
+    <h6>{{title}}</h6>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <input formControlName="nombre" type="text" class="form-control form-control-user" [(ngModel)]="carrera.nombre" [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Nombre de la Carrera" />
+
+            <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                <div *ngIf="f.nombre.errors.required">El nombre es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
+            </div>
+            <input formControlName="director" type="text" class="form-control form-control-user" [(ngModel)]="carrera.director" [ngClass]="{'is-invalid': submitted && f.director.errors}" placeholder="Nombre del Director" />
+
+            <div *ngIf="submitted && f.director.errors" class="invalid-feedback">
+                <div *ngIf="f.director.errors.required">El nombre del director es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='facreditos'></fa-icon></span>
+            </div>
+            <input formControlName="creditos_totales" type="number" class="form-control form-control-user" [(ngModel)]="carrera.creditos_totales" [ngClass]="{'is-invalid': submitted && f.creditos_totales.errors}" placeholder="Número de Créditos Totales" />
+
+            <div *ngIf="submitted && f.creditos_totales.errors" class="invalid-feedback">
+                <div *ngIf="f.creditos_totales.errors.required">El numero de creditos es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faCalendar'></fa-icon></span>
+            </div>
+            <input formControlName="fecha_creacion" type="date" class="form-control form-control-user" [(ngModel)]="carrera.fecha_creacion" />
+        </div>
+        <b><label igxLabel for="estatus">Estatus</label></b>
+        <div class="input-group mb-3">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='festatus'></fa-icon></span>
+            </div>
+            <select formControlName="estatus" [(ngModel)]="carrera.estatus" [ngClass]="{'is-invalid': submitted && f.estatus.errors }" class="form-control form-control-user">
+                    <option value="V">Vigente</option>
+                    <option value="N">No Vigente</option>
+                    <option value="E">En proceso</option>                
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='ftexto'></fa-icon></span>
+            </div>
+            <textarea formControlName="descripcion" type="text" class="form-control form-control-user" [(ngModel)]="carrera.descripcion" [ngClass]="{'is-invalid': submitted && f.descripcion.errors}" placeholder="Descripcion de la Carrera"></textarea>
+            <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+                <div *ngIf="f.descripcion.errors.required">La descripcion de la carrrera es requerida</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='facreditos'></fa-icon></span>
+            </div>
+            <input formControlName="duracion" type="number" class="form-control form-control-user" [(ngModel)]="carrera.duracion" [ngClass]="{'is-invalid': submitted && f.duracion.errors}" placeholder="Duración" />
+
+            <div *ngIf="submitted && f.creditos_totales.errors" class="invalid-feedback">
+                <div *ngIf="f.duracion.errors.required">La duración es requerida</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='fmision'></fa-icon></span>
+            </div>
+            <textarea formControlName="mision" type="text" class="form-control form-control-user" [(ngModel)]="carrera.mision" [ngClass]="{'is-invalid': submitted && f.mision.errors}" placeholder="Misión de la Carrera"></textarea>
+
+            <div *ngIf="submitted && f.mision.errors" class="invalid-feedback">
+                <div *ngIf="f.mision.errors.required">La misión de la carrrera es requerida</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='fvision'></fa-icon></span>
+            </div>
+            <textarea formControlName="vision" type="text" class="form-control form-control-user" [(ngModel)]="carrera.vision" [ngClass]="{'is-invalid': submitted && f.vision.errors}" placeholder="Visión de la Carrera"></textarea>
+
+            <div *ngIf="submitted && f.vision.errors" class="invalid-feedback">
+                <div *ngIf="f.vision.errors.required">La visión de la carrrera es requerida</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='ftipo'></fa-icon></span>
+            </div>
+            <input formControlName="tipo" type="text" class="form-control form-control-user" [(ngModel)]="carrera.tipo" [ngClass]="{'is-invalid': submitted && f.vision.errors}" placeholder="Tipo de la Carrera" />
+
+            <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
+                <div *ngIf="f.tipo.errors.required">El tipo de carrera es requerido</div>
+            </div>
+        </div>
+        <b><label igxLabel for="modalidad">Modalidad</label></b>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='famodalidad'></fa-icon></span>
+            </div>
+            <select formControlName="modalidad" [(ngModel)]="carrera.modalidad" [ngClass]="{'is-invalid': submitted && f.modalidad.errors }" class="form-control form-control-user">
+                    <option value="P">Presencial</option>
+                    <option value="S">Semipresencial</option>
+                    <option value="D">Dual</option>                
+                    <option value="E">En Linea</option>                
+                    <option value="A">A distancia</option>                
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='fresolucion'></fa-icon></span>
+            </div>
+            <input formControlName="resolucion_ces" type="text" class="form-control form-control-user" [(ngModel)]="carrera.resolucion_ces" [ngClass]="{'is-invalid': submitted && f.resolucion_ces.errors}" placeholder="Resolución del CES" />
+
+            <div *ngIf="submitted && f.resolucion_ces.errors" class="invalid-feedback">
+                <div *ngIf="f.resolucion_ces.errors.required">La resolución del CES es requerida</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='fsemanas'></fa-icon></span>
+            </div>
+            <input formControlName="semanas_periodo" type="number" class="form-control form-control-user" [(ngModel)]="carrera.semanas_periodo" [ngClass]="{'is-invalid': submitted && f.semanas_periodo.errors}" placeholder="Semanas por Periodo" />
+
+            <div *ngIf="submitted && f.semanas_periodo.errors" class="invalid-feedback">
+                <div *ngIf="f.semanas_periodo.errors.required">Las semanas por periodo son requeridas</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='frequisitos'></fa-icon></span>
+            </div>
+            <textarea formControlName="requisitos" type="text" class="form-control form-control-user" [(ngModel)]="carrera.requisitos" [ngClass]="{'is-invalid': submitted && f.requisitos.errors}" placeholder="Requisitos de Carrera"></textarea>
+
+            <div *ngIf="submitted && f.requisitos.errors" class="invalid-feedback">
+                <div *ngIf="f.requisitos.errors.required">Los requisitos de carrera son requeridos</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='flaboral'></fa-icon></span>
+            </div>
+            <textarea formControlName="escenarios_labo" type="text" class="form-control form-control-user" [(ngModel)]="carrera.escenarios_labo" [ngClass]="{'is-invalid': submitted && f.escenarios_labo.errors}" placeholder="Escenarios Laborales"></textarea>
+
+            <div *ngIf="submitted && f.escenarios_labo.errors" class="invalid-feedback">
+                <div *ngIf="f.escenarios_labo.errors.required">Los escenarios laborales son requeridos</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='fobjetivo'></fa-icon></span>
+            </div>
+            <textarea formControlName="objeto_estudio" type="text" class="form-control form-control-user" [(ngModel)]="carrera.objeto_estudio" [ngClass]="{'is-invalid': submitted && f.objeto_estudio.errors}" placeholder="Objeto de Estudio"></textarea>
+
+            <div *ngIf="submitted && f.objeto_estudio.errors" class="invalid-feedback">
+                <div *ngIf="f.objeto_estudio.errors.required">El objeto de Estudio es requerido</div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success">
+                    <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
+                </button>
+            <button type="reset" (click)="onReset()" class="btn btn-danger">
+                    <fa-icon [icon]='fatimes'></fa-icon>&nbsp;Cancelar
+                </button>
+        </div>
+    </div>
+</form>
+<hr>

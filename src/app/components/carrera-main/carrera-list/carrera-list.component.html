@@ -1,0 +1,51 @@
+<div>
+    <div class="text-center">
+        <fa-icon class="fa-5x" [icon]="faListAlt"></fa-icon>
+    </div>
+    <hr>
+    <button routerLink="create" class="btn btn-sm btn-success"><fa-icon [icon]="faPencilAlt"></fa-icon>Añadir nueva Carrera</button>
+    <h5>Listado de Carreras</h5>
+    <table class="table table-hover">
+        <thead class="bg-info">
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Modalidad
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Estatus
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of carreras; let i = index">
+
+                <td>
+                    {{item.nombre}}
+                </td>
+                <td>
+                    {{item.modalidad | modalidad}}
+                </td>
+                <td>
+                    {{item.tipo}}
+                </td>
+                <td>
+                    {{item.estatus | estatus}}
+                </td>
+                <td class="btn-group">
+                    <button [routerLink]="['view', item.idCarrera]" class="btn btn-sm btn-info"><fa-icon [icon]="faEye"></fa-icon></button>
+                    <button [routerLink]="['update', item.idCarrera]" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button>
+                    <button (click)="delete(item)" class="btn btn-sm btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <router-outlet></router-outlet>
+</div>
