@@ -1,5 +1,5 @@
 export class Area {
     idarea: number;
-    nombre:string;  
-    coordinador:string;  
+    nombre:string;
+    coordinador:string;
 }
