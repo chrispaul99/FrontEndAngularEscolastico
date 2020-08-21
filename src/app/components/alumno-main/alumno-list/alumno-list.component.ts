@@ -16,33 +16,32 @@ export class AlumnoListComponent implements OnInit {
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
 
-  alumnos: Alumno[];
+  alumnos : Alumno[];
   @Output() alumnoToEdit = new EventEmitter<Alumno>();
   @Input() flagToReload;
-  // tslint:disable-next-line: ban-types
   @Output() reloadComplete = new EventEmitter<Boolean>();
 
-  constructor(private alumnoService: AlumnoService) { }
+  constructor(private alumnoService:AlumnoService) { }
 
   ngOnInit(): void {
     this.list();
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.flagToReload.currentValue){
-      if (this.flagToReload){
+    if(changes.flagToReload.currentValue){
+      if(this.flagToReload){
         this.list();
       }
     }
   }
 
 
-  update(a: Alumno): void {
+  update(a:Alumno) :void {
     console.log(a);
     this.alumnoToEdit.emit(a);
   }
 
-  delete(a: Alumno): void {
+  delete(a:Alumno) :void {
     swal.fire({
       title: '¿Está seguro de continuar?',
       text: "El registro de " + a.nombres + " " + a.apellidos + " será eliminado.",
@@ -55,22 +54,21 @@ export class AlumnoListComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.alumnoService.delete(a).subscribe(
-          // tslint:disable-next-line: no-shadowed-variable
           result => console.log(result)
-        );
+        )
       }
-    });
+    })
   }
 
 
 
-  list(): void {
-    this.alumnoService.list().subscribe(result => {
+  list() : void {
+    this.alumnoService.list().subscribe(result => {      
       this.alumnos = result;
       this.reloadComplete.emit(true);
     });
   }
 
-
+  
 
 }

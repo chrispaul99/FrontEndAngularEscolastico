@@ -20,8 +20,10 @@ import { MasmasPipe } from './shared/pipes/masmas.pipe';
 import { SexdescPipe } from './shared/pipes/sexdesc.pipe';
 import { MateriaFormComponent } from './components/materia-form/materia-form.component';
 import { MatriculaFormComponent } from './components/matricula-form/matricula-form.component';
-import { CarreraService } from './services/carrera.service';
 import { CarreraMainComponent } from './components/carrera-main/carrera-main.component';
+import { CalificacionFormComponent } from './components/calificacion-form/calificacion-form.component';
+import { AlumnoSearchComponent } from './components/alumno-search/alumno-search.component';
+import { AporteFormComponent } from './components/aporte-form/aporte-form.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,14 @@ import { CarreraMainComponent } from './components/carrera-main/carrera-main.com
     AlumnoListComponent,
     AlumnoFormComponent,
     AlumnoCardComponent,
+    AporteFormComponent,   
     MasmasPipe,
     SexdescPipe,
     MateriaFormComponent,
     MatriculaFormComponent,
     CarreraMainComponent,
+    AlumnoSearchComponent,
+    CalificacionFormComponent
   ],
   imports: [
     FormsModule,

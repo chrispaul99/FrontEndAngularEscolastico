@@ -4,10 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse
+  HttpResponse  
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/do'
 import Swal from 'sweetalert2';
 
 @Injectable()
@@ -17,43 +17,43 @@ export class ServiceInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, response: HttpHandler): Observable<HttpEvent<unknown>> {
     return response.handle(request).do(next => {
-      if (next instanceof HttpResponse){
+      if(next instanceof HttpResponse){
         console.info(next);
-        if (next.status === 201)
-        {
+        if(next.status === 201)
+        {          
           Swal.fire({
             title : "¡Correcto!",
             text : next.body,
             icon : "success"
           });
-        }
-        if (next.status === 200)
-        {
+        }        
+        /*if(next.status === 200)
+        { 
           Swal.fire({
             title : "¡Correcto!",
             text : next.body,
             icon : "success"
           });
-        }
+        }*/
       }
     }, error => {
       console.error(error);
-      if (error.status === 400)
-        {
+      if(error.status === 400)
+        {          
           Swal.fire({
             title : "Error",
-            text : error.error.Message,
+            text :error.error.Message,
             icon : "error"
           });
-        }
-      if (error.status === 0)
-        {
+        }     
+        if(error.status === 0)
+        {          
           Swal.fire({
             title : "Error",
-            text : error.message,
+            text :error.message,
             icon : "error"
           });
-        }
+        }     
     });
   }
 }

@@ -21,13 +21,13 @@ export class MatriculaService {
   };
 
   constructor(private http:HttpClient) { }
-  save(a: Matricula): Observable<any> {
-    const matriculaBody = JSON.stringify(a);
-    if (a.idmatricula === undefined){
-      return this.http.post<any>(this.url, matriculaBody, this.httpOptions);
-    }
-    return this.http.put<any>(this.url, matriculaBody, this.httpOptions);
+
+  save(a:Matricula) : Observable<any> {
+    let matriculaBody = JSON.stringify(a);       
+    return this.http.post<any>(this.url, matriculaBody, this.httpOptions);    
   }
+
+
   list(id:number): Observable<Matricula[]> {
     return this.http.get<Matricula[]>(this.url.concat("/") + id, this.httpOptions)
       .pipe(

@@ -1,11 +1,9 @@
 export class Alumno {
-    idalumno: number;
-    nombres: string;
-    apellidos: string;
+    idalumno:number;
+    nombres :string;
+    apellidos :string;
     cedula: string;
-    // tslint:disable-next-line: variable-name
-    fecha_nacimiento: string;
-    // tslint:disable-next-line: variable-name
+    fecha_nacimiento:string;
     lugar_nacimiento: string;
-    sexo: string = "M";
+    sexo:string = "M";    
 }

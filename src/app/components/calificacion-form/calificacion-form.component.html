@@ -1,0 +1,127 @@
+<br>
+<h3>Registro de calificaciones</h3>
+<hr>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#alumno" role="tab" aria-controls="home" aria-selected="true">Buscar alumno</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#matriculas" role="tab" aria-controls="profile" aria-selected="false">Seleccionar matricula</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#calificacion" role="tab" aria-controls="contact" aria-selected="false">Realizar calificación</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="home-tab">
+        <br>
+        <h5 *ngIf="alumno != undefined">{{alumno.nombres}} {{alumno.apellidos}}</h5>
+        <br>
+        <app-alumno-search (alumnoFound)="setAlumno($event)"></app-alumno-search>
+    </div>
+    <div class="tab-pane fade" id="matriculas" role="tabpanel" aria-labelledby="profile-tab">
+        <br>
+        <h5 *ngIf="calificacion.Matricula != undefined">{{calificacion.Matricula.Materia.nombre}}</h5>
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Materia
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Costo
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of matriculas">
+                    <td>
+                        NRC {{item.Materia.nrc}} - {{item.Materia.nombre}}
+                    </td>
+                    <td>{{ item.tipo }}</td>
+                    <td>{{ item.costo | currency }}</td>
+                    <td class="btn-group">
+                        <button (click)="selectMatricula(item)" class="btn btn-sm btn-info"><fa-icon [icon]="faCheck"></fa-icon></button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="calificacion" role="tabpanel" aria-labelledby="contact-tab">
+        <h5 *ngIf="alumno != undefined">Alumno: {{alumno.nombres}} {{alumno.apellidos}}</h5>
+        <h5 *ngIf="calificacion.Matricula != undefined">Matricula: {{calificacion.Matricula.Materia.nrc}} {{calificacion.Matricula.Materia.nombre}}</h5>
+        <h6>{{nota}} / 20</h6>
+        <div class="row">
+            <div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+                    <fieldset>
+                        <label>Unidad: </label>
+                        <select formControlName="unidad" class="control-user" [(ngModel)]="calificacion.unidad">
+                            <option>-- Seleccione --</option>
+                            <option value="P">Primera</option>
+                            <option value="S">Segunda</option>
+                            <option value="T">Tercera</option>
+                        </select>
+                        <br>
+                        <button [disabled]="alumno == undefined || calificacion.idMatricula == undefined" type="submit">Guardar</button>&nbsp;
+                        <button type="reset" (click)="onReset()">Cancelar</button><br>
+                    </fieldset>
+                </form>
+                <br>
+                <table class="table table-hovered">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                            <th>Ponderado</th>
+                            <th>Puntaje</th>
+                            <th class="btn-group">
+                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><fa-icon [icon]="faPlusSquare"></fa-icon></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of calificacion.Aporte; let i=index">
+                            <td>
+                                {{i | masmas}}
+                            </td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.valor}}</td>
+                            <td>{{item.ponderado}}</td>
+                            <td>{{(item.valor * item.ponderado)/20}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <pre>
+                    {{calificacion | json}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar aporte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <app-aporte-form (aporteAdded)="addAporte($event)"></app-aporte-form>
+            </div>
+        </div>
+    </div>
+</div>

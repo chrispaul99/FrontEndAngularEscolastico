@@ -1,0 +1,45 @@
+<div class="row col-6">
+    <div class="input-group flex-nowrap">                
+        <input (change)="searchAlumno($event)" type="text" placeholder="Ingrese una cédula para buscar y presione enter" class="form-control">                    
+    </div>
+</div>
+<br>
+<table *ngIf="alumnos != null && alumnos.length > 0" class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                N°
+            </th>
+            <th>
+                Nombres
+            </th>
+            <th>
+                Apellidos
+            </th>
+            <th>
+                Cédula
+            </th>          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>        
+            <tr *ngFor="let item of alumnos; let i = index">
+                <td>
+                    {{i | masmas}}
+                </td>
+                <td>
+                    {{item.nombres}}
+                </td>
+                <td>
+                    {{item.apellidos}}
+                </td>
+                <td>
+                    {{item.cedula}}
+                </td>                
+                <td class="btn-group">
+                    <button (click)="selectAlumno(item.idalumno)" class="btn btn-sm btn-info" ><fa-icon [icon]="faCheck"></fa-icon></button>                                            
+                </td>
+            </tr>
+        
+    </tbody>
+</table>

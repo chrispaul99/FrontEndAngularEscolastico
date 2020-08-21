@@ -2,15 +2,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faUserPlus, faIdCard, faSave, faTimes, faUser, faCalendar, faMapMarkedAlt, faGenderless } from '@fortawesome/free-solid-svg-icons';
 import { Alumno } from 'src/app/models/alumno';
 import { AlumnoService } from 'src/app/services/alumno.service';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-alumno-form',
-  templateUrl: './alumno-form.component.html'
+  templateUrl: './alumno-form.component.html'  
 })
 export class AlumnoFormComponent implements OnInit {
 
-  faUserPlus = faUserPlus;
+  faUserPlus =faUserPlus;
   faIdCard = faIdCard;
   faSave = faSave;
   faTimes = faTimes;
@@ -19,12 +19,11 @@ export class AlumnoFormComponent implements OnInit {
   faMapMarkedAlt = faMapMarkedAlt;
   faGenderless = faGenderless;
 
-  @Input() alumno: Alumno;
-  @Input() title: string;
-  // tslint:disable-next-line: ban-types
+  @Input() alumno : Alumno;
+  @Input() title : string;
   @Output() flagToReload = new EventEmitter<Boolean>();
-
-  form: FormGroup;
+ 
+  form: FormGroup;  
   submitted: boolean = false;
 
   constructor(private alumnoService: AlumnoService, private formBuilder: FormBuilder) { }
@@ -36,7 +35,7 @@ export class AlumnoFormComponent implements OnInit {
       apellidos: ['', [Validators.required]],
       fecha_nacimiento: [''],
       lugar_nacimiento: [''],
-      sexo: ['', [Validators.maxLength(1)]],
+      sexo: ['',[Validators.maxLength(1)]],      
     });
   }
 
@@ -44,11 +43,11 @@ export class AlumnoFormComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit(): void {
+  onSubmit() : void {
 
     this.submitted = true;
 
-    if (this.form.invalid){
+    if(this.form.invalid){
       console.error('Error en formulario');
       return;
     }
@@ -62,7 +61,7 @@ export class AlumnoFormComponent implements OnInit {
     );
   }
 
-  onReset(): void {
+  onReset() : void {
     this.submitted = false;
     this.form.reset();
     this.alumno = new Alumno();

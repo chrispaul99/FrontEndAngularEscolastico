@@ -64,3 +64,29 @@
   <hr>
   <br>
 </div>
+<div class="container">
+    <div class="row">        
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Materia</th>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Costo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of matriculas; let i = index">
+            <td>{{i | masmas}}</td>
+            <td>{{ item.Materia.nombre }}</td>
+            <td>{{ item.fecha | date:'dd/MMM/yyyy HH:mm' }}</td>
+            <td>{{ item.tipo }}</td>
+            <td>{{ item.costo | currency }}</td>
+        </tr>
+
+    </tbody>
+</table>
+    </div>
+
+</div>
