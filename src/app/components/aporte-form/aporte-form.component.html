@@ -1,24 +1,18 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
     <fieldset>
         <label>Nombre: </label>
-        <input formControlName="nombre" type="text" class="form-control"  
-                [ngClass]="{'is-invalid': f.nombre.errors}" 
-                placeholder="Nombre" />
+        <input formControlName="nombre" type="text" class="form-control" [ngClass]="{'is-invalid': f.nombre.errors}" placeholder="Nombre" />
         <br>
         <label>Valor: </label>
-        <input formControlName="valor" type="number" class="form-control"  
-                [ngClass]="{'is-invalid': f.valor.errors}" 
-                placeholder="Valor" />
+        <input formControlName="valor" type="number" class="form-control" [ngClass]="{'is-invalid': f.valor.errors}" placeholder="Valor" />
         <br>
         <label>Ponderado: </label>
-        <input formControlName="ponderado" type="number" class="form-control"  
-                [ngClass]="{'is-invalid': f.ponderado.errors}" 
-                placeholder="Valor" />
+        <input formControlName="ponderado" type="number" class="form-control" [ngClass]="{'is-invalid': f.ponderado.errors}" placeholder="Valor" />
     </fieldset>
     <hr>
     <div class="btn-group">
         <button type="button" (click)="onReset()" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button [disabled]="form.invalid"  type="submit" class="btn btn-primary">Guardar</button>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </form>
 <br>
